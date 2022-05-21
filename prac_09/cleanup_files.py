@@ -49,7 +49,7 @@ def get_fixed_filename(filename):
         toappend=letter
         if index>0:
             prevLetter = filename[index-1]
-            if letter.islower() and (prevLetter == "_" or prevLetter=="("):
+            if letter.islower() and (prevLetter in "_("):
                 toappend=toappend.upper()
 
         if index<len(filename)-1:
@@ -78,7 +78,7 @@ def demo_walk():
             new_name=os.path.join(directory_name, get_fixed_filename(filename))
             filename=os.path.join(directory_name, filename)
             print("Renaming {} to {}".format(filename,new_name))
-            #os.rename(filename,new_name)
+            os.rename(filename,new_name)
 
 #main()
 demo_walk()
