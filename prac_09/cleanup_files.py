@@ -41,8 +41,27 @@ def main():
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-    return new_name
+    #TheHopeOfAllHearts.txt
+    filename = filename.replace(" ", "_").replace(".TXT", ".txt")
+    result=""
+
+    for index,letter in enumerate(filename):
+        toappend=letter
+        if index>0:
+            prevLetter = filename[index-1]
+            if letter.islower() and (prevLetter == "_" or prevLetter=="("):
+                toappend=toappend.upper()
+
+        if index<len(filename)-1:
+            nextLetter=filename[index+1]
+            if letter.islower() and nextLetter.isupper():
+                toappend=toappend+ "_"
+
+        result=result+toappend
+
+
+
+    return result
 
 
 def demo_walk():
@@ -59,7 +78,7 @@ def demo_walk():
             new_name=os.path.join(directory_name, get_fixed_filename(filename))
             filename=os.path.join(directory_name, filename)
             print("Renaming {} to {}".format(filename,new_name))
-            os.rename(filename,new_name)
+            #os.rename(filename,new_name)
 
 #main()
 demo_walk()
