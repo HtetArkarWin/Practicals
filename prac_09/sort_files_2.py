@@ -28,13 +28,13 @@ def main():
         category=ext_to_category[ext]
         if not os.path.exists(category):
             try:
-                print('creating {}'.format(category))
+                #print('creating {}'.format(category))
                 os.mkdir(category)
             except FileExistsError:
                 print(category + ' directory already exist.')
 
         new_name=os.path.join(category, filename)
-        print("Moving {} to {}".format(filename, new_name))
+        #print("Moving {} to {}".format(filename, new_name))
 
         shutil.move(filename, new_name)
 
