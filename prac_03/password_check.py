@@ -1,4 +1,8 @@
+#My Public Parctical GitHub Repository Url:
+#https://github.com/HtetArkarWin/Practicals
+
 MIN_LENGTH = 2
+
 def main():
 
     password = get_password()
