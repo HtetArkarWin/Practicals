@@ -17,6 +17,14 @@ class ConvertMilesKm(App):
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
 
+    def handle_user_input(self,value):
+        try:
+            value = float(value)
+        except ValueError:
+            value=0
+
+        self.handle_convert(value)
+
     def handle_increment(self,value,increment):
         #self.message = self.root.ids.user_input.text
         try:
